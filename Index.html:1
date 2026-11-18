@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultimate Soundboard</title>
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080810;
+  color: white;
+}
+header {
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg,#140021,#6200ff,#ff00b7);
+}
+header h1 {
+  font-size: 40px;
+  text-shadow: 0 0 15px #ff00dd;
+}
+header p { color: #ddd; }
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  background: #191923;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: .15s;
+}
+button:hover {
+  transform: scale(1.04);
+  background: #6200ff;
+  border-color: #ff00dd;
+}
+
+.stop { background: #bb0000; }
+.loop { background: #6200ff; }
+
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #ff00dd;
+  border-bottom: 2px solid #6200ff;
+  padding-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(135px,1fr));
+  gap: 12px;
+}
+
+.meme { background: #330000; }
+.rizz { background: #330022; }
+.phonk { background: #240044; }
+.soccer { background: #003322; }
+.music { background: #001133; }
+
+.volume {
+  text-align: center;
+  padding: 10px;
+}
+
+input[type=range] {
+  accent-color: #ff00dd;
+  width: 220px;
+}
+
+input[type=file] {
+  padding: 15px;
+  color: white;
+  max-width: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🔥 ULTIMATE SOUNDBOARD 🔥</h1>
+<p>MEMES • RIZZ • PHONK • SOCCER • MUSIC</p>
+</header>
+
+<div class="controls">
+<button class="stop" onclick="stopAll()">⏹ STOP ALL</button>
+<button class="loop" onclick="toggleLoop()">🔁 PHONK LOOP</button>
+<button onclick="randomSound()">🎲 RANDOM SOUND</button>
+</div>
+
+<div class="volume">
+🔊 Volume
+<br>
+<input type="range" min="0" max="100" value="50" id="volume">
+</div>
+
+<section>
+<h2>😂 MEME SOUNDS</h2>
+<div class="grid">
+<button class="meme" onclick="vine()">💥 Vine Boom</button>
+<button class="meme" onclick="bruh()">🗿 Bruh</button>
+<button class="meme" onclick="airhorn()">📢 Airhorn</button>
+<button class="meme" onclick="goofy()">🤡 Goofy</button>
+<button class="meme" onclick="laugh()">😂 Laugh</button>
+<button class="meme" onclick="sad()">😭 Sad Trombone</button>
+<button class="meme" onclick="explosion()">💣 Boom</button>
+<button class="meme" onclick="fart()">💨 Fart</button>
+<button class="meme" onclick="windows()">💻 Error</button>
+<button class="meme" onclick="rewind()">⏪ Rewind</button>
+<button class="meme" onclick="siren()">🚨 Siren</button>
+<button class="meme" onclick="bell()">🔔 Bell</button>
+<button class="meme" onclick="bonk()">🔨 Bonk</button>
+<button class="meme" onclick="yip()">🐕 Dog Sound</button>
+<button class="meme" onclick="scream()">😱 Scream Effect</button>
+<button class="meme" onclick="cartoon()">🎺 Cartoon</button>
+</div>
+</section>
+
+<section>
+<h2>🗿 RIZZ & SIGMA MEMES</h2>
+<div class="grid">
+<button class="rizz" onclick="rizz()">😎 Rizz</button>
+<button class="rizz" onclick="sigma()">🗿 Sigma</button>
+<button class="rizz" onclick="chad()">💪 Chad</button>
+<button class="rizz" onclick="mew()">🗿 Mewing</button>
+<button class="rizz" onclick="negative()">❌ Negative</button>
+<button class="rizz" onclick="vine()">💀 Skull</button>
+<button class="rizz" onclick="goofy()">🤓 Nerd</button>
+<button class="rizz" onclick="bruh()">🥶 Bruh</button>
+<button class="rizz" onclick="troll()">👹 Troll</button>
+<button class="rizz" onclick="victory()">🏆 Victory</button>
+</div>
+</section>
+
+<section>
+<h2>🔥 PHONK SOUNDS</h2>
+<div class="grid">
+<button class="phonk" onclick="kick()">🥁 Phonk Kick</button>
+<button class="phonk" onclick="bass()">🔊 Deep Bass</button>
+<button class="phonk" onclick="cowbell()">🔔 Cowbell</button>
+<button class="phonk" onclick="snare()">🥁 Snare</button>
+<button class="phonk" onclick="hihat()">🎩 Hi-Hat</button>
+<button class="phonk" onclick="phonkBeat()">🔥 Phonk Beat</button>
+<button class="phonk" onclick="darkBeat()">🌑 Dark Phonk</button>
+<button class="phonk" onclick="drift()">🏎️ Drift Phonk</button>
+<button class="phonk" onclick="bassDrop()">💥 Bass Drop</button>
+<button class="phonk" onclick="fastBeat()">⚡ Fast Beat</button>
+<button class="phonk" onclick="Brazil()">🇧🇷 Brazilian Style</button>
+<button class="phonk" onclick="melody()">🎹 Phonk Melody</button>
+</div>
+</section>
+
+<section>
+<h2>⚽ SOCCER SOUNDS</h2>
+<div class="grid">
+<button class="soccer" onclick="goal()">⚽ GOAL!</button>
+<button class="soccer" onclick="whistle()">📣 Referee Whistle</button>
+<button class="soccer" onclick="crowd()">🏟️ Crowd Cheer</button>
+<button class="soccer" onclick="boo()">👎 Crowd Boo</button>
+<button class="soccer" onclick="chant()">🎶 Soccer Chant</button>
+<button class="soccer" onclick="kick()">🥅 Kick</button>
+<button class="soccer" onclick="penalty()">⚽ Penalty</button>
+<button class="soccer" onclick="victory()">🏆 Victory</button>
+<button class="soccer" onclick="sad()">😢 Missed Goal</button>
+<button class="soccer" onclick="horn()">📯 Stadium Horn</button>
+<button class="soccer" onclick="ref()">🟥 Red Card</button>
+<button class="soccer" onclick="refYellow()">🟨 Yellow Card</button>
+</div>
+</section>
+
+<section>
+<h2>🎵 MUSIC & BEATS</h2>
+<div class="grid">
+<button class="music" onclick="beat1()">🎵 Beat 1</button>
+<button class="music" onclick="beat2()">🎵 Beat 2</button>
+<button class="music" onclick="beat3()">🎵 Beat 3</button>
+<button class="music" onclick="beat4()">🎵 Beat 4</button>
+<button class="music" onclick="melody()">🎹 Melody</button>
+<button class="music" onclick="bassDrop()">💥 Bass Drop</button>
+<button class="music" onclick="fastBeat()">⚡ Fast Beat</button>
+<button class="music" onclick="phonkBeat()">🔥 Phonk</button>
+</div>
+</section>
+
+<section>
+<h2>📁 ADD YOUR OWN MEMES & SONGS</h2>
+<p>Upload MP3, WAV, or other audio files from your computer.</p>
+<input type="file" id="files" accept="audio/*" multiple>
+<div class="grid" id="uploads"></div>
+</section>
+
+<footer>
+ULTIMATE SOUNDBOARD 🔥
+</footer>
+
+<script>
+let ctx, master;
+let loopTimer;
+let looping = false;
+let activePlayers = [];
+
+function setup() {
+  if (!ctx) {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain();
+    master.connect(ctx.destination);
+  }
+  if (ctx.state === "suspended") ctx.resume();
+  master.gain.value = document.getElementById("volume").value / 100;
+}
+
+document.getElementById("volume").oninput = function() {
+  if (master) master.gain.value = this.value / 100;
+};
+
+function tone(f,d,t="sine",v=.4,end=0) {
+  setup();
+  let o=ctx.createOscillator(), g=ctx.createGain();
+  o.type=t;
+  o.frequency.value=f;
+  if(end) o.frequency.exponentialRampToValueAtTime(
+    Math.max(1,end),ctx.currentTime+d
+  );
+  g.gain.setValueAtTime(v,ctx.currentTime);
+  g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+d);
+  o.connect(g);g.connect(master);
+  o.start();o.stop(ctx.currentTime+d);
+}
+
+function noise(d,v=.4) {
+  setup();
+  let b=ctx.createBuffer(1,ctx.sampleRate*d,ctx.sampleRate);
+  let a=b.getChannelData(0);
+  for(let i=0;i<a.length;i++)a[i]=Math.random()*2-1;
+  let s=ctx.createBufferSource(),g=ctx.createGain();
+  s.buffer=b;g.gain.value=v;
+  s.connect(g);g.connect(master);s.start();
+}
+
+function vine(){tone(110,.8,"sine",1,30);tone(55,.8,"triangle",.8,20);}
+function bruh(){tone(180,.6,"sawtooth",.6,70);}
+function airhorn(){tone(500,.8,"sawtooth",.6);tone(650,.8,"square",.4);}
+function goofy(){tone(500,.2,"triangle");setTimeout(()=>tone(350,.2,"triangle"),150);setTimeout(()=>tone(200,.5,"triangle"),300);}
+function laugh(){for(let i=0;i<6;i++)setTimeout(()=>tone(500,.1,"square",.3,300),i*150);}
+function sad(){tone(400,.5,"triangle",.5,300);setTimeout(()=>tone(300,.5,"triangle",.5,200),400);setTimeout(()=>tone(200,.8,"triangle",.5,100),800);}
+function explosion(){noise(.5,.8);tone(80,.8,"sine",.8,20);}
+function fart(){tone(100,.5,"sawtooth",.7,40);noise(.3,.2);}
+function windows(){tone(700,.15,"square");setTimeout(()=>tone(400,.2,"square"),150);}
+function rewind(){tone(1000,.5,"sawtooth",.5,100);}
+function siren(){tone(500,1.5,"sawtooth",.5,1000);}
+function bell(){tone(880,.5);tone(1320,.3);}
+function bonk(){tone(250,.15,"triangle",.8,70);}
+function yip(){tone(700,.1,"square");setTimeout(()=>tone(900,.1,"square"),150);}
+function scream(){tone(300,1,"sawtooth",.5,900);}
+function cartoon(){tone(800,.2,"triangle",.5,400);setTimeout(()=>tone(300,.3,"triangle"),200);}
+
+function rizz(){tone(500,.3,"sine");tone(800,.5,"sine");}
+function sigma(){tone(100,.5,"triangle",.8,40);vine();}
+function chad(){tone(100,.4,"sawtooth",.6,60);}
+function mew(){tone(700,.2,"sine",.4,900);}
+function negative(){tone(300,.3,"square",.5,100);}
+function troll(){tone(800,.3,"sawtooth",.5,100);}
+function victory(){tone(400,.2);setTimeout(()=>tone(600,.2),200);setTimeout(()=>tone(800,.4),400);}
+
+function kick(){tone(150,.3,"sine",1,40);}
+function bass(){tone(70,1,"sawtooth",.7,30);}
+function cowbell(){tone(600,.15,"square",.5);tone(800,.15,"square",.4);tone(500,.2,"square",.5);}
+function snare(){noise(.15,.5);tone(180,.15,"triangle",.3);}
+function hihat(){noise(.07,.15);}
+function bassDrop(){tone(300,1.5,"sawtooth",.8,30);}
+function phonkBeat(){
+  kick();
+  setTimeout(cowbell,150);
+  setTimeout(kick,300);
+  setTimeout(snare,450);
+  setTimeout(cowbell,600);
+  setTimeout(kick,750);
+  setTimeout(hihat,900);
+  setTimeout(snare,1050);
+}
+function darkBeat(){
+  kick();bass();
+  setTimeout(snare,300);
+  setTimeout(kick,600);
+  setTimeout(cowbell,900);
+  setTimeout(snare,1200);
+}
+function drift(){
+  kick();setTimeout(cowbell,150);
+  setTimeout(kick,300);setTimeout(snare,450);
+  setTimeout(cowbell,600);setTimeout(kick,750);
+}
+function fastBeat(){
+  for(let i=0;i<8;i++)setTimeout(kick,i*150);
+}
+function Brazil(){
+  kick();cowbell();
+  setTimeout(snare,200);
+  setTimeout(kick,400);
+  setTimeout(cowbell,600);
+  setTimeout(snare,800);
+}
+function melody(){
+  tone(440,.2,"triangle");
+  setTimeout(()=>tone(550,.2,"triangle"),200);
+  setTimeout(()=>tone(660,.2,"triangle"),400);
+  setTimeout(()=>tone(880,.4,"triangle"),600);
+}
+function beat1(){phonkBeat();}
+function beat2(){darkBeat();}
+function beat3(){drift();}
+function beat4(){fastBeat();}
+
+function goal(){
+  setup();
+  for(let i=0;i<5;i++)setTimeout(()=>tone(500+i*150,.4,"sawtooth",.4),i*100);
+  crowd();
+}
+function whistle(){tone(1800,.5,"sine",.5);tone(2200,.5,"sine",.3);}
+function crowd(){noise(1,.5);tone(300,.8,"sawtooth",.2,600);}
+function boo(){tone(200,.5,"sawtooth",.4,100);noise(.4,.3);}
+function chant(){
+  tone(300,.3,"sawtooth");
+  setTimeout(()=>tone(300,.3,"sawtooth"),300);
+  setTimeout(()=>tone(500,.5,"sawtooth"),600);
+}
+function penalty(){whistle();setTimeout(kick,500);}
+function horn(){airhorn();}
+function ref(){whistle();setTimeout(()=>tone(100,.4,"square"),500);}
+function refYellow(){whistle();setTimeout(()=>tone(700,.2,"square"),500);}
+
+function toggleLoop(){
+  if(looping){
+    clearInterval(loopTimer);
+    looping=false;
+  }else{
+    looping=true;
+    phonkBeat();
+    loopTimer=setInterval(phonkBeat,1200);
+  }
+}
+
+function stopAll(){
+  if(loopTimer)clearInterval(loopTimer);
+  looping=false;
+  if(ctx){
+    ctx.close();
+    ctx=null;
+    master=null;
+  }
+  activePlayers.forEach(p=>p.pause());
+  activePlayers=[];
+}
+
+function randomSound(){
+  const sounds=[vine,bruh,airhorn,goofy,laugh,explosion,fart,
+  rizz,sigma,chad,bonk,kick,bass,cowbell,phonkBeat,goal,whistle,crowd,chant];
+  sounds[Math.floor(Math.random()*sounds.length)]();
+}
+
+document.getElementById("files").addEventListener("change",function(e){
+  for(const file of e.target.files){
+    const url=URL.createObjectURL(file);
+    const b=document.createElement("button");
+    b.textContent="🎵 "+file.name;
+    b.onclick=()=>{
+      const p=new Audio(url);
+      p.volume=document.getElementById("volume").value/100;
+      p.play();
+      activePlayers.push(p);
+    };
+    document.getElementById("uploads").appendChild(b);
+  }
+});
+</script>
+</body>
+</html>
